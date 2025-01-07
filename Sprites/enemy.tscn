@@ -4,7 +4,9 @@
 
 [node name="Enemy" type="Node2D"]
 
-[node name="EnemySprite" type="Sprite2D" parent="."]
+[node name="EnemyImage" type="Node" parent="."]
+
+[node name="EnemyImageSprite" type="Sprite2D" parent="EnemyImage"]
 texture = ExtResource("1_voubp")
 
 [node name="EnemyName" type="Node" parent="."]
