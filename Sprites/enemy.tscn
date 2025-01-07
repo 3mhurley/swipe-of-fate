@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8u8xelycr637"]
+
+[ext_resource type="Texture2D" uid="uid://bq44x74cvr6wy" path="res://Sprites/Sprite-0001.png" id="1_voubp"]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_voubp")
+
+[node name="EnemyName" type="Node" parent="."]
+
+[node name="EnemyNameLabel" type="Label" parent="EnemyName"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EnemyHealth" type="Node" parent="."]
+
+[node name="EnemyHealthLabel" type="Label" parent="EnemyHealth"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EnemyAttack" type="Node" parent="."]
+
+[node name="EnemyAttackSprite" type="Sprite2D" parent="EnemyAttack"]
+
+[node name="EnemyDamage" type="Node" parent="."]
+
+[node name="EnemyDamageSprite" type="Sprite2D" parent="EnemyDamage"]
