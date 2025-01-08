@@ -9,8 +9,16 @@ class_name Enemy extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	enemy_name_label.set_text(enemy_name)
-	enemy_health_label.set_text(str(enemy_health))
+	set_enemy_values(enemy_name, enemy_health)
+	visible = false
+
+func set_enemy_values(_name: String, _health: int):
+	enemy_name = _name
+	enemy_health = _health
+	#enemy_image_sprite = _sprite
+
+	enemy_name_label.set_text(_name)
+	enemy_health_label.set_text(str(_health))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

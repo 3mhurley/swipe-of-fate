@@ -1,25 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8u8xelycr637"]
+[gd_scene load_steps=3 format=3 uid="uid://b8u8xelycr637"]
 
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_be3yf"]
 [ext_resource type="Texture2D" uid="uid://bq44x74cvr6wy" path="res://Sprites/Sprite-0001.png" id="1_voubp"]
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_be3yf")
 
 [node name="EnemyImage" type="Node" parent="."]
 
 [node name="EnemyImageSprite" type="Sprite2D" parent="EnemyImage"]
+position = Vector2(360, 704)
 texture = ExtResource("1_voubp")
 
 [node name="EnemyName" type="Node" parent="."]
 
 [node name="EnemyNameLabel" type="Label" parent="EnemyName"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_right = 0.229167
+anchor_bottom = 0.0515625
+offset_left = 260.0
+offset_top = 227.0
+offset_right = 300.0
+offset_bottom = 250.0
+metadata/_edit_use_anchors_ = true
 
 [node name="EnemyHealth" type="Node" parent="."]
 
 [node name="EnemyHealthLabel" type="Label" parent="EnemyHealth"]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_right = 0.173611
+anchor_bottom = 0.0617188
+offset_left = 272.0
+offset_top = 1091.0
+offset_right = 312.0
+offset_bottom = 1114.0
+metadata/_edit_use_anchors_ = true
 
 [node name="EnemyAttack" type="Node" parent="."]
 
