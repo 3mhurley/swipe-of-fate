@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr1bdp6icg15g"]
+
+[ext_resource type="PackedScene" uid="uid://buy303q1o7s3" path="res://Scenes/tunnel.tscn" id="1_pnt8d"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameScreen" type="Node2D" parent="."]
+
+[node name="Player" type="Node2D" parent="GameScreen"]
+
+[node name="Enemy" type="Node2D" parent="GameScreen"]
+
+[node name="Map" type="Node2D" parent="GameScreen"]
+
+[node name="Tunnel" parent="." instance=ExtResource("1_pnt8d")]

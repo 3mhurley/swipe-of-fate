@@ -5,6 +5,7 @@
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_be3yf")
+enemy_name = "Knight"
 
 [node name="EnemyImage" type="Node" parent="."]
 
@@ -22,6 +23,7 @@ offset_left = 260.0
 offset_top = 227.0
 offset_right = 300.0
 offset_bottom = 250.0
+text = "Knight"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyHealth" type="Node" parent="."]
@@ -34,6 +36,7 @@ offset_left = 272.0
 offset_top = 1091.0
 offset_right = 312.0
 offset_bottom = 1114.0
+text = "3"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyAttack" type="Node" parent="."]
