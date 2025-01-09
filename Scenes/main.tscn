@@ -5,8 +5,23 @@
 [node name="Main" type="Node2D"]
 
 [node name="GameScreen" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Player" type="Node2D" parent="GameScreen"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="ProgressBar" type="ProgressBar" parent="GameScreen/Player"]
+z_index = 1
+y_sort_enabled = true
+offset_left = 100.0
+offset_top = 950.0
+offset_right = 600.0
+offset_bottom = 1250.0
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
 
 [node name="Enemy" type="Node2D" parent="GameScreen"]
 
