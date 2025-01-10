@@ -1,15 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr1bdp6icg15g"]
+[gd_scene load_steps=4 format=3 uid="uid://cr1bdp6icg15g"]
 
 [ext_resource type="PackedScene" uid="uid://buy303q1o7s3" path="res://Scenes/tunnel.tscn" id="1_pnt8d"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_uelvu"]
+[ext_resource type="PackedScene" uid="uid://b8u8xelycr637" path="res://Sprites/enemy.tscn" id="2_roqx8"]
 
 [node name="Main" type="Node2D"]
 
 [node name="GameScreen" type="Node2D" parent="."]
 
 [node name="Player" type="Node2D" parent="GameScreen"]
+script = ExtResource("1_uelvu")
 
-[node name="Enemy" type="Node2D" parent="GameScreen"]
+[node name="CanvasLayer" type="CanvasLayer" parent="GameScreen/Player"]
+
+[node name="HealthBar" type="ProgressBar" parent="GameScreen/Player/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.0
+offset_top = 1175.0
+offset_right = 301.0
+offset_bottom = 1234.0
+grow_horizontal = 2
+max_value = 10.0
+step = 1.0
+value = 10.0
+rounded = true
+show_percentage = false
+
+[node name="Opponent" type="Node2D" parent="GameScreen"]
+
+[node name="Enemy" parent="GameScreen/Opponent" instance=ExtResource("2_roqx8")]
+enemy_max_health = null
 
 [node name="Map" type="Node2D" parent="GameScreen"]
 
-[node name="Tunnel" parent="." instance=ExtResource("1_pnt8d")]
+[node name="Tunnel" parent="GameScreen/Map" instance=ExtResource("1_pnt8d")]

@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8u8xelycr637"]
+[gd_scene load_steps=5 format=3 uid="uid://b8u8xelycr637"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_be3yf"]
 [ext_resource type="Texture2D" uid="uid://bq44x74cvr6wy" path="res://Sprites/Sprite-0001.png" id="1_voubp"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_k216e"]
+font_size = 32
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_cloac"]
+font_size = 32
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+
 [node name="Enemy" type="Node2D"]
+visible = false
 script = ExtResource("1_be3yf")
 enemy_name = "Knight"
 
@@ -19,11 +32,14 @@ texture = ExtResource("1_voubp")
 anchors_preset = -1
 anchor_right = 0.229167
 anchor_bottom = 0.0515625
-offset_left = 260.0
-offset_top = 227.0
-offset_right = 300.0
-offset_bottom = 250.0
+offset_left = 257.0
+offset_top = 276.0
+offset_right = 297.0
+offset_bottom = 299.0
 text = "Knight"
+label_settings = SubResource("LabelSettings_k216e")
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyHealth" type="Node" parent="."]
@@ -32,11 +48,14 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = -1
 anchor_right = 0.173611
 anchor_bottom = 0.0617188
-offset_left = 272.0
-offset_top = 1091.0
-offset_right = 312.0
-offset_bottom = 1114.0
+offset_left = 279.0
+offset_top = 514.0
+offset_right = 319.0
+offset_bottom = 537.0
 text = "3"
+label_settings = SubResource("LabelSettings_cloac")
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyAttack" type="Node" parent="."]
