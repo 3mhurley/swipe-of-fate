@@ -24,5 +24,5 @@ func _on_button_pressed() -> void:
 	var enemy_health: int = rng.randi_range(min_enemy_health, max_enemy_health)
 
 	spawn_point.add_child(enemy)
-	enemy.set_enemy_values(enemy_name, enemy_health)
+	enemy.set_enemy_values(enemy_name, enemy_health, max_enemy_health)
 	enemy.visible = true

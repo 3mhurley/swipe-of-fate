@@ -5,6 +5,9 @@
 
 [node name="Tunnel" type="Node2D"]
 script = ExtResource("1_3vofj")
+min_enemy_health = null
+max_enemy_health = null
+enemy_names = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(361, 641)

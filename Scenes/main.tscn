@@ -28,11 +28,30 @@ value = 10.0
 rounded = true
 show_percentage = false
 
+[node name="DamagePlayerButton" type="Button" parent="GameScreen/Player/CanvasLayer"]
+offset_left = 268.0
+offset_top = 1095.0
+offset_right = 431.0
+offset_bottom = 1163.0
+text = "Damage Player"
+
 [node name="Opponent" type="Node2D" parent="GameScreen"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="GameScreen/Opponent"]
+
+[node name="DamageEnemyButton" type="Button" parent="GameScreen/Opponent/CanvasLayer"]
+offset_left = 546.0
+offset_top = 12.0
+offset_right = 709.0
+offset_bottom = 80.0
+text = "Damage Enemy"
+
 [node name="Enemy" parent="GameScreen/Opponent" instance=ExtResource("2_roqx8")]
-enemy_max_health = null
+enemy_max_health = 10
 
 [node name="Map" type="Node2D" parent="GameScreen"]
 
 [node name="Tunnel" parent="GameScreen/Map" instance=ExtResource("1_pnt8d")]
+
+[connection signal="pressed" from="GameScreen/Player/CanvasLayer/DamagePlayerButton" to="GameScreen/Player" method="_on_damage_player_button_pressed"]
+[connection signal="pressed" from="GameScreen/Opponent/CanvasLayer/DamageEnemyButton" to="GameScreen/Opponent/Enemy" method="_on_damage_enemy_button_pressed"]

@@ -23,3 +23,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	update_health_bar()
+
+
+func _on_damage_player_button_pressed() -> void:
+	health = health - 1
+	update_health_bar()

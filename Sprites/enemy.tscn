@@ -19,6 +19,7 @@ shadow_size = 12
 visible = false
 script = ExtResource("1_be3yf")
 enemy_name = "Knight"
+enemy_max_health = null
 
 [node name="EnemyImage" type="Node" parent="."]
 
@@ -30,12 +31,11 @@ texture = ExtResource("1_voubp")
 
 [node name="EnemyNameLabel" type="Label" parent="EnemyName"]
 anchors_preset = -1
-anchor_right = 0.229167
-anchor_bottom = 0.0515625
-offset_left = 257.0
-offset_top = 276.0
-offset_right = 297.0
-offset_bottom = 299.0
+anchor_top = 0.145313
+anchor_right = 1.0
+anchor_bottom = 0.20625
+grow_horizontal = 2
+grow_vertical = 2
 text = "Knight"
 label_settings = SubResource("LabelSettings_k216e")
 horizontal_alignment = 1
@@ -57,6 +57,21 @@ label_settings = SubResource("LabelSettings_cloac")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="EnemyHealth"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_top = 264.0
+offset_right = -110.0
+offset_bottom = -966.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 0.0
+step = 1.0
+rounded = true
+show_percentage = false
 
 [node name="EnemyAttack" type="Node" parent="."]
 
