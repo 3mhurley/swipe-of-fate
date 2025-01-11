@@ -69,6 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 max_value = 10.0
 step = 1.0
+value = 3.0
 rounded = true
 show_percentage = false
 

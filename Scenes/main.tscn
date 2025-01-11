@@ -52,7 +52,6 @@ offset_bottom = 80.0
 text = "Damage Enemy"
 
 [node name="Enemy" parent="GameScreen/Opponent" instance=ExtResource("2_roqx8")]
-enemy_max_health = 10
 
 [node name="Map" type="Node2D" parent="GameScreen"]
 

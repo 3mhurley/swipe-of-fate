@@ -11,12 +11,18 @@ func get_direction(start_pos: Vector2, end_pos: Vector2) -> String:
 
 	direction_vector = end_pos - start_pos
 
-	if direction_vector.x > 0:
-		return "Right"
-	elif direction_vector.x < 0:
-		return "Left"
+	if abs(direction_vector.x) > abs(direction_vector.y):
+		if direction_vector.x > 0:
+			return "right"
+		elif direction_vector.x < 0:
+			return "left"
 	else:
-		return "Straight Up and Down"  # No horizontal movement
+		if direction_vector.y > 0:
+			return "down"
+		elif direction_vector.y < 0:
+			return "up"
+
+	return "none"  # No significant movement in either axis
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
