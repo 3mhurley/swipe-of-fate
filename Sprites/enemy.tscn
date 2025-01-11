@@ -19,7 +19,6 @@ shadow_size = 12
 visible = false
 script = ExtResource("1_be3yf")
 enemy_name = "Knight"
-enemy_max_health = null
 
 [node name="EnemyImage" type="Node" parent="."]
 
@@ -68,7 +67,7 @@ offset_right = -110.0
 offset_bottom = -966.0
 grow_horizontal = 2
 grow_vertical = 2
-max_value = 0.0
+max_value = 10.0
 step = 1.0
 rounded = true
 show_percentage = false
