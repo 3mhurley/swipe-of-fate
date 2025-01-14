@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://che7bsgofrinv"]
+
+[ext_resource type="Texture2D" uid="uid://b8xr3ve2qtls5" path="res://Sprites/Weapon-0001.png" id="1_a8306"]
+[ext_resource type="Script" path="res://Scripts/damage.gd" id="1_ladoh"]
+
+[node name="Damage" type="Node2D"]
+script = ExtResource("1_ladoh")
+
+[node name="DamageImage" type="Node" parent="."]
+
+[node name="DamageImageSprite" type="Sprite2D" parent="DamageImage"]
+position = Vector2(175, 445)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_a8306")
+centered = false

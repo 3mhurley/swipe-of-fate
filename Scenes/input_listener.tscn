@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsvpaghpx4p75"]
 
 [ext_resource type="Texture2D" uid="uid://bci3a8chw2idy" path="res://Misc/Arrow-Sprites-0001.png" id="1_iynav"]
-[ext_resource type="Script" path="res://Scenes/input_listener.gd" id="2_ucsab"]
+[ext_resource type="Script" path="res://Scripts/input_listener.gd" id="2_ucsab"]
 
 [node name="InputListener" type="Sprite2D"]
 texture = ExtResource("1_iynav")

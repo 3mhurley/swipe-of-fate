@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcwe1df5fl47c"]
+
+[ext_resource type="Script" path="res://Scripts/combat.gd" id="1_wnp00"]
+
+[node name="Combat" type="Node2D"]
+script = ExtResource("1_wnp00")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

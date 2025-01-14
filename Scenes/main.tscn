@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr1bdp6icg15g"]
+[gd_scene load_steps=7 format=3 uid="uid://cr1bdp6icg15g"]
 
 [ext_resource type="Script" path="res://Scripts/swipe.gd" id="1_bukg6"]
 [ext_resource type="PackedScene" uid="uid://buy303q1o7s3" path="res://Scenes/tunnel.tscn" id="1_pnt8d"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uelvu"]
+[ext_resource type="PackedScene" uid="uid://dcwe1df5fl47c" path="res://Scenes/combat.tscn" id="2_3fr1v"]
 [ext_resource type="PackedScene" uid="uid://bsvpaghpx4p75" path="res://Scenes/input_listener.tscn" id="2_8kw8g"]
 [ext_resource type="PackedScene" uid="uid://b8u8xelycr637" path="res://Sprites/enemy.tscn" id="2_roqx8"]
 
@@ -13,6 +14,8 @@
 [node name="Camera2D" type="Camera2D" parent="GameScreen"]
 anchor_mode = 0
 script = ExtResource("1_bukg6")
+
+[node name="Combat" parent="GameScreen" instance=ExtResource("2_3fr1v")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GameScreen"]
 
