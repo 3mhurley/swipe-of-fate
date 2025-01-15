@@ -2,18 +2,13 @@ extends Node2D
 
 @onready var damage_scene: PackedScene = preload("res://Sprites/damage.tscn")
 
+@onready var opponent_node = get_parent().get_node("Opponent")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_node("Timer").wait_time = 4
-	get_node("Timer").start()
+	get_node("CombatTimer").wait_time = 4
+	get_node("CombatTimer").start()
 
-func add_damage_sprite() -> void:
-	var damage: Damage = damage_scene.instantiate()
-	var damage_image_rotation: String = "Left"
-
-	add_child(damage)
-	damage.set_damage_values(damage_image_rotation)
-	damage.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -27,19 +22,12 @@ func _on_timer_timeout() -> void:
 	var damage: Damage = damage_scene.instantiate()
 	var damage_image_rotation: String = "Left"
 
-	add_child(damage)
+	opponent_node.add_child(damage)
 	damage.set_damage_values(damage_image_rotation)
 	damage.visible = true
 
-	var remove_timer = Timer.new()
-	remove_timer.wait_time = 1.5
-	remove_timer.timeout.connect(_on_RemoveTimer_timeout)
-	add_child(remove_timer)
-	remove_timer.start()
+	await get_tree().create_timer(1.5).timeout
+	print("remove timer")
 
-func _on_RemoveTimer_timeout():
-	# Remove the sprite
-	get_node("Sprite").queue_free() 
-
-	# Remove the remove timer
-	queue_free()
+	if is_instance_valid(damage):
+		damage.queue_free()
