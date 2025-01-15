@@ -16,9 +16,6 @@ func _process(_delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("Timer timeout")
-	# add_damage_sprite()
-
 	var damage: Damage = damage_scene.instantiate()
 	var damage_image_rotation: String = "Left"
 
@@ -27,7 +24,6 @@ func _on_timer_timeout() -> void:
 	damage.visible = true
 
 	await get_tree().create_timer(1.5).timeout
-	print("remove timer")
 
 	if is_instance_valid(damage):
 		damage.queue_free()

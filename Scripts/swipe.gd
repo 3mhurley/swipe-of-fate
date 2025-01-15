@@ -1,10 +1,11 @@
 extends Camera2D
 
-var drag_length: int = 10
-var start_position: Vector2
-var current_position: Vector2
-var final_position: Vector2
-var swiping = false
+@onready var drag_length: int = 10
+@onready var start_position: Vector2
+@onready var current_position: Vector2
+@onready var final_position: Vector2
+@onready var swiping: bool = false
+@onready var swiping_direction: String
 
 func get_direction(start_pos: Vector2, end_pos: Vector2) -> String:
 	var direction_vector: Vector2
@@ -30,11 +31,12 @@ func _process(_delta: float) -> void:
 		if !swiping:
 			swiping = true
 			start_position = get_global_mouse_position()
-			# print("Start position: ", start_position)
 
 	if Input.is_action_just_released("press"):
 		if swiping:
 			final_position = get_global_mouse_position()
-			# print("Final position: ", final_position)
 			swiping = false
-			print("Swiped " + get_direction(start_position, final_position))
+			swiping_direction = get_direction(start_position, final_position)
+
+			if swiping_direction != "none":
+				print("Swiped " + swiping_direction)
