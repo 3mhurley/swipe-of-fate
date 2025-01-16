@@ -4,11 +4,13 @@
 [ext_resource type="Script" path="res://Scripts/damage.gd" id="1_ladoh"]
 
 [node name="Damage" type="Node2D"]
+visible = false
 script = ExtResource("1_ladoh")
 
 [node name="DamageImage" type="Node" parent="."]
 
 [node name="DamageImageSprite" type="Sprite2D" parent="DamageImage"]
+visible = false
 position = Vector2(175, 445)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_a8306")
