@@ -9,6 +9,7 @@ extends Node2D
 @onready var damage_sprite = damage.get_node("DamageImage/DamageImageSprite")
 @onready var player_node = get_parent().get_node("Player")
 @onready var opponent_node = get_parent().get_node("Opponent")
+# @onready var attack_sfx = 
 
 
 func create_damage() -> void:
@@ -19,9 +20,12 @@ func create_damage() -> void:
 
 func damage_player() -> void:
 	player_node.health -= 1
+	player_node.get_node("DamageSFX").play()
+
 
 func damage_opponent() -> void:
 	opponent_node.get_node("Enemy").enemy_health -= 1
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,14 +40,20 @@ func _process(_delta: float) -> void:
 		print("Key pressed: ", key_name)
 		damage_sprite.visible = false
 		parriable = false
+		get_node("ParryingSFX").play()
 		damage_opponent()
 	pass
 
 
 func _on_timer_timeout() -> void:
 
+	if damage_image_rotation == "Right":
+		damage_sprite.flip_h = true
+	
 	damage_sprite.visible = true
 	parriable = true
+
+	opponent_node.get_node("Enemy/EnemySounds/AttackingSFX").play()
 
 	await get_tree().create_timer(1.5).timeout
 

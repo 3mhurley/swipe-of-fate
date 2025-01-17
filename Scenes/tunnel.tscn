@@ -18,6 +18,7 @@ texture = ExtResource("1_chi24")
 [node name="Spawn" type="Node2D" parent="CanvasLayer"]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 offset_left = 22.0
 offset_top = 16.0
 offset_right = 138.0

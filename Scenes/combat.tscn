@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcwe1df5fl47c"]
+[gd_scene load_steps=3 format=3 uid="uid://dcwe1df5fl47c"]
 
 [ext_resource type="Script" path="res://Scripts/combat.gd" id="1_wnp00"]
+[ext_resource type="AudioStream" uid="uid://bo3v4f3m25sde" path="res://Sounds/parry.ogg" id="2_qascj"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_wnp00")
 
 [node name="CombatTimer" type="Timer" parent="."]
+
+[node name="ParryingSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qascj")
 
 [connection signal="timeout" from="CombatTimer" to="." method="_on_timer_timeout"]

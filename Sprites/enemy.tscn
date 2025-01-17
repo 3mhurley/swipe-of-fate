@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8u8xelycr637"]
+[gd_scene load_steps=6 format=3 uid="uid://b8u8xelycr637"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_be3yf"]
 [ext_resource type="Texture2D" uid="uid://bq44x74cvr6wy" path="res://Sprites/Sprite-0001.png" id="1_voubp"]
+[ext_resource type="AudioStream" uid="uid://vkv05td8spae" path="res://Sounds/attack.ogg" id="3_pxw52"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k216e"]
 font_size = 32
@@ -81,3 +82,8 @@ show_percentage = false
 [node name="EnemyDamage" type="Node" parent="."]
 
 [node name="EnemyDamageSprite" type="Sprite2D" parent="EnemyDamage"]
+
+[node name="EnemySounds" type="Node" parent="."]
+
+[node name="AttackingSFX" type="AudioStreamPlayer2D" parent="EnemySounds"]
+stream = ExtResource("3_pxw52")
