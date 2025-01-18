@@ -38,6 +38,13 @@ hframes = 5
 frame = 2
 key_name = "block_left"
 
+[node name="StartButton" type="Button" parent="GameScreen/CanvasLayer"]
+offset_left = 174.0
+offset_top = 9.0
+offset_right = 549.0
+offset_bottom = 187.0
+text = "START"
+
 [node name="Player" type="Node2D" parent="GameScreen"]
 script = ExtResource("1_uelvu")
 
@@ -90,5 +97,6 @@ text = "Damage Enemy"
 [node name="Damage" parent="GameScreen" instance=ExtResource("7_c8r7d")]
 visible = true
 
+[connection signal="pressed" from="GameScreen/CanvasLayer/StartButton" to="GameScreen/Combat" method="_on_button_pressed"]
 [connection signal="pressed" from="GameScreen/Player/CanvasLayer/DamagePlayerButton" to="GameScreen/Player" method="_on_damage_player_button_pressed"]
 [connection signal="pressed" from="GameScreen/Opponent/CanvasLayer/DamageEnemyButton" to="GameScreen/Opponent/Enemy" method="_on_damage_enemy_button_pressed"]

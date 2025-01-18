@@ -30,7 +30,6 @@ func damage_opponent() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("CombatTimer").wait_time = 4
-	get_node("CombatTimer").start()
 	create_damage()
 
 
@@ -62,3 +61,7 @@ func _on_timer_timeout() -> void:
 		parriable = false
 		damage_player()
 
+
+func _on_button_pressed() -> void:
+	get_node("CombatTimer").start()
+	get_parent().get_node("CanvasLayer/StartButton").visible = false
