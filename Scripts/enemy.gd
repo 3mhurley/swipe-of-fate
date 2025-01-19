@@ -2,16 +2,26 @@
 class_name Enemy extends Node2D
 
 @export var enemy_name: String = "Enemy Name"
-@export var enemy_health: int = 3
+@export var enemy_health: int = 10
 @export var enemy_max_health: int = 10
 @export var enemy_image_sprite: Node2D
+
+@export var min_enemy_health: int = 5
+@export var max_enemy_health: int = 10
+@export var enemy_name_options: Array = ["Rosstoff", "Yanderin", "Welcox", "Anderan", "Dwellin"]
 
 @onready var enemy_name_label: Label = $EnemyName/EnemyNameLabel
 @onready var enemy_health_label: Label = $EnemyHealth/EnemyHealthLabel
 
+@onready var rng = RandomNumberGenerator.new()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_enemy_values(enemy_name, enemy_health, enemy_max_health)
+	var random_name: String = enemy_name_options.pick_random()
+	var random_health: int = rng.randi_range(min_enemy_health, max_enemy_health)
+
+	set_enemy_values(random_name, random_health, random_health)
 	visible = false
 
 func set_enemy_values(_name: String, _health: int, _max_health: int):

@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr1bdp6icg15g"]
+[gd_scene load_steps=7 format=3 uid="uid://cr1bdp6icg15g"]
 
-[ext_resource type="Script" path="res://Scripts/swipe.gd" id="1_bukg6"]
 [ext_resource type="PackedScene" uid="uid://buy303q1o7s3" path="res://Scenes/tunnel.tscn" id="1_pnt8d"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uelvu"]
 [ext_resource type="PackedScene" uid="uid://dcwe1df5fl47c" path="res://Scenes/combat.tscn" id="2_3fr1v"]
 [ext_resource type="PackedScene" uid="uid://bsvpaghpx4p75" path="res://Scenes/input_listener.tscn" id="2_8kw8g"]
-[ext_resource type="PackedScene" uid="uid://b8u8xelycr637" path="res://Sprites/enemy.tscn" id="2_roqx8"]
 [ext_resource type="AudioStream" uid="uid://b8gsc3x4vlos0" path="res://Sounds/damage.ogg" id="5_as8y4"]
 [ext_resource type="PackedScene" uid="uid://che7bsgofrinv" path="res://Sprites/damage.tscn" id="7_c8r7d"]
 
@@ -15,7 +13,6 @@
 
 [node name="Camera2D" type="Camera2D" parent="GameScreen"]
 anchor_mode = 0
-script = ExtResource("1_bukg6")
 
 [node name="Combat" parent="GameScreen" instance=ExtResource("2_3fr1v")]
 
@@ -88,8 +85,6 @@ offset_right = 709.0
 offset_bottom = 80.0
 text = "Damage Enemy"
 
-[node name="Enemy" parent="GameScreen/Opponent" instance=ExtResource("2_roqx8")]
-
 [node name="Map" type="Node2D" parent="GameScreen"]
 
 [node name="Tunnel" parent="GameScreen/Map" instance=ExtResource("1_pnt8d")]
@@ -99,4 +94,3 @@ visible = true
 
 [connection signal="pressed" from="GameScreen/CanvasLayer/StartButton" to="GameScreen/Combat" method="_on_button_pressed"]
 [connection signal="pressed" from="GameScreen/Player/CanvasLayer/DamagePlayerButton" to="GameScreen/Player" method="_on_damage_player_button_pressed"]
-[connection signal="pressed" from="GameScreen/Opponent/CanvasLayer/DamageEnemyButton" to="GameScreen/Opponent/Enemy" method="_on_damage_enemy_button_pressed"]
