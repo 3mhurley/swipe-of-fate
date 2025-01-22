@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr1bdp6icg15g"]
+[gd_scene load_steps=8 format=3 uid="uid://cr1bdp6icg15g"]
 
 [ext_resource type="PackedScene" uid="uid://buy303q1o7s3" path="res://Scenes/tunnel.tscn" id="1_pnt8d"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uelvu"]
 [ext_resource type="PackedScene" uid="uid://dcwe1df5fl47c" path="res://Scenes/combat.tscn" id="2_3fr1v"]
 [ext_resource type="PackedScene" uid="uid://bsvpaghpx4p75" path="res://Scenes/input_listener.tscn" id="2_8kw8g"]
+[ext_resource type="Texture2D" uid="uid://fm0fy8lqi0or" path="res://Maps/Win-Screen.png" id="3_7gs42"]
 [ext_resource type="AudioStream" uid="uid://b8gsc3x4vlos0" path="res://Sounds/damage.ogg" id="5_as8y4"]
 [ext_resource type="PackedScene" uid="uid://che7bsgofrinv" path="res://Sprites/damage.tscn" id="7_c8r7d"]
 
@@ -41,6 +42,12 @@ offset_top = 9.0
 offset_right = 549.0
 offset_bottom = 187.0
 text = "START"
+
+[node name="WinScreen" type="TextureRect" parent="GameScreen/CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_7gs42")
 
 [node name="Player" type="Node2D" parent="GameScreen"]
 script = ExtResource("1_uelvu")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://buy303q1o7s3"]
 
 [ext_resource type="Script" path="res://Scripts/tunnel.gd" id="1_3vofj"]
-[ext_resource type="Texture2D" uid="uid://cy5agph5kcjmt" path="res://Sprites/Hall-0001.png" id="1_chi24"]
+[ext_resource type="Texture2D" uid="uid://cy5agph5kcjmt" path="res://Maps/Hall-0001.png" id="1_chi24"]
 
 [node name="Tunnel" type="Node2D"]
 script = ExtResource("1_3vofj")
