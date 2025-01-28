@@ -6,15 +6,15 @@ extends Node2D
 @export var kill_count: int = 0
 
 @onready var enemy_scene: PackedScene = preload("res://Sprites/enemy.tscn")
-@onready var enemy: Enemy = enemy_scene.instantiate()
+@onready var enemy: Enemy
 
 @onready var damage_scene: PackedScene = preload("res://Sprites/damage.tscn")
-@onready var damage: Damage = damage_scene.instantiate()
-@onready var damage_sprite = damage.get_node("DamageImage/DamageImageSprite")
-@onready var damage_directions = ["Left", "Right"]
+@onready var damage: Damage
+@onready var damage_sprite: Sprite2D
+@onready var damage_directions: Array = ["Left", "Right"]
 
-@onready var player_node = get_parent().get_node("Player")
-@onready var opponent_node = get_parent().get_node("Opponent")
+@onready var player_node: Node2D = get_parent().get_node("Player")
+@onready var opponent_node: Node2D = get_parent().get_node("Opponent")
 # @onready var attack_sfx = 
 
 @onready var rng = RandomNumberGenerator.new()
@@ -25,10 +25,13 @@ extends Node2D
 
 
 func create_enemy() -> void:
+	enemy = enemy_scene.instantiate()
 	opponent_node.add_child(enemy)
 
 
 func create_damage() -> void:
+	damage = damage_scene.instantiate()
+	damage_sprite = damage.get_node("DamageImage/DamageImageSprite")
 	damage_sprite.visible = false
 	opponent_node.add_child(damage)
 
@@ -48,13 +51,15 @@ func damage_opponent() -> void:
 		# remove_child(opponent_node.get_node("Enemy"))
 		# remove_child(opponent_node.get_node("Damage"))
 
-		for i in opponent_node.get_children():
-			print(i.name)
+		# for i in opponent_node.get_children():
+		# 	print(i.name)
 
 		# if kill_count < 3:
 		# 	kill_count += 1
+		# 	print("Kill count: " + str(kill_count))
 		# 	start_game()
 		# else:
+		# 	print("Kill count: " + str(kill_count))
 		# 	get_parent().get_node("CanvasLayer/WinScreen").visible = true
 
 
