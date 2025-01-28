@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var enemy_scene: PackedScene = preload("res://Sprites/enemy.tscn")
 @onready var enemy: Enemy
+@onready var enemy_sfx: AudioStreamPlayer2D
 
 @onready var damage_scene: PackedScene = preload("res://Sprites/damage.tscn")
 @onready var damage: Damage
@@ -27,13 +28,15 @@ extends Node2D
 func create_enemy() -> void:
 	enemy = enemy_scene.instantiate()
 	opponent_node.add_child(enemy)
+	enemy_sfx = enemy.get_node("EnemySounds/AttackingSFX")
+	# enemy_health = enemy.enemy_health
 
 
 func create_damage() -> void:
 	damage = damage_scene.instantiate()
+	opponent_node.add_child(damage)
 	damage_sprite = damage.get_node("DamageImage/DamageImageSprite")
 	damage_sprite.visible = false
-	opponent_node.add_child(damage)
 
 
 func damage_player() -> void:
@@ -42,25 +45,22 @@ func damage_player() -> void:
 
 
 func damage_opponent() -> void:
-	opponent_node.get_node("Enemy").enemy_health -= 1
+	enemy.enemy_health -= 1
 
-	if opponent_node.get_node("Enemy").enemy_health <= 0:
+	if enemy.enemy_health <= 0:
 		get_node("CombatTimer").stop()
 		opponent_node.get_node("Enemy").queue_free()
 		opponent_node.get_node("Damage").queue_free()
-		# remove_child(opponent_node.get_node("Enemy"))
-		# remove_child(opponent_node.get_node("Damage"))
 
-		# for i in opponent_node.get_children():
-		# 	print(i.name)
-
-		# if kill_count < 3:
-		# 	kill_count += 1
-		# 	print("Kill count: " + str(kill_count))
-		# 	start_game()
-		# else:
-		# 	print("Kill count: " + str(kill_count))
-		# 	get_parent().get_node("CanvasLayer/WinScreen").visible = true
+		if kill_count <= 3:
+			kill_count += 1
+			print("Kill count: " + str(kill_count))
+			await get_tree().create_timer(3).timeout
+			start_game()
+		else:
+			print("Kill count: " + str(kill_count))
+			await get_tree().create_timer(3).timeout
+			get_parent().get_node("CanvasLayer/WinScreen").visible = true
 
 
 func get_direction(start_pos: Vector2, end_pos: Vector2) -> String:
@@ -105,6 +105,7 @@ func _input(event: InputEvent) -> void:
 		if not dragging and event.pressed:
 			dragging = true
 			mouse_start_position = get_global_mouse_position()
+
 		# Stop dragging if the button is released.
 		if dragging and not event.pressed:
 			dragging = false
@@ -139,7 +140,7 @@ func _on_timer_timeout() -> void:
 	damage_sprite.visible = true
 	parriable = true
 
-	opponent_node.get_node("Enemy/EnemySounds/AttackingSFX").play()
+	enemy_sfx.play()
 
 	await get_tree().create_timer(1).timeout
 

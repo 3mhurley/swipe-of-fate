@@ -19,8 +19,7 @@ shadow_size = 12
 [node name="Enemy" type="Node2D"]
 visible = false
 script = ExtResource("1_be3yf")
-enemy_name = "Knight"
-enemy_health = 10
+enemy_name = "Dwellin"
 
 [node name="EnemyImage" type="Node" parent="."]
 
@@ -37,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 0.20625
 grow_horizontal = 2
 grow_vertical = 2
-text = "Knight"
+text = "Dwellin"
 label_settings = SubResource("LabelSettings_k216e")
 horizontal_alignment = 1
 vertical_alignment = 1
