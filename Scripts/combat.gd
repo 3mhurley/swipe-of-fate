@@ -29,7 +29,6 @@ func create_enemy() -> void:
 	enemy = enemy_scene.instantiate()
 	opponent_node.add_child(enemy)
 	enemy_sfx = enemy.get_node("EnemySounds/AttackingSFX")
-	# enemy_health = enemy.enemy_health
 
 
 func create_damage() -> void:
@@ -43,6 +42,8 @@ func damage_player() -> void:
 	player_node.health -= 1
 	player_node.get_node("DamageSFX").play()
 
+	get_node("CombatTimer").wait_time = rng.randi_range(1, 5)
+
 
 func damage_opponent() -> void:
 	enemy.enemy_health -= 1
@@ -52,7 +53,7 @@ func damage_opponent() -> void:
 		opponent_node.get_node("Enemy").queue_free()
 		opponent_node.get_node("Damage").queue_free()
 
-		if kill_count <= 3:
+		if kill_count < 3:
 			kill_count += 1
 			print("Kill count: " + str(kill_count))
 			await get_tree().create_timer(3).timeout
@@ -61,6 +62,8 @@ func damage_opponent() -> void:
 			print("Kill count: " + str(kill_count))
 			await get_tree().create_timer(3).timeout
 			get_parent().get_node("CanvasLayer/WinScreen").visible = true
+	else:
+		get_node("CombatTimer").wait_time = rng.randi_range(1, 5)
 
 
 func get_direction(start_pos: Vector2, end_pos: Vector2) -> String:
@@ -122,7 +125,7 @@ func _input(event: InputEvent) -> void:
 					parriable = false
 					get_node("ParryingSFX").play()
 					damage_opponent()
-					get_node("CombatTimer").wait_time = rng.randi_range(1, 5)
+
 
 
 func _on_timer_timeout() -> void:
@@ -148,7 +151,6 @@ func _on_timer_timeout() -> void:
 		damage_sprite.visible = false
 		parriable = false
 		damage_player()
-		get_node("CombatTimer").wait_time = rng.randi_range(1, 5)
 
 
 func _on_button_pressed() -> void:
